@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación: Movimiento en Una Dimensión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Code Pro', monospace;
+        }
+        .slide {
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        .answer {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .answer.visible {
+            max-height: 500px; /* Adjust as needed */
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-purple-900 text-white">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 min-h-screen flex flex-col justify-center">
+
+        <div id="presentation-container" class="bg-purple-800 rounded-2xl shadow-2xl p-8 pb-20 relative min-h-[60vh] flex flex-col">
+            
+            <!-- Slide 1: Title -->
+            <div id="slide-1" class="slide active text-center m-auto">
+                <h1 class="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-lg">Movimiento en Una Dimensión</h1>
+                <p class="text-purple-200 mt-4 text-xl">Una introducción a la cinemática.</p>
+            </div>
+
+            <!-- Slide 2: Vectores -->
+            <div id="slide-2" class="slide">
+                <h2 class="text-3xl font-bold text-yellow-300 mb-4">¿Qué es un Vector?</h2>
+                <p class="text-lg text-purple-200">En física, no solo importa "cuánto", sino también "hacia dónde".</p>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+                    <div class="bg-purple-700 p-6 rounded-xl">
+                        <h3 class="font-bold text-xl text-yellow-300">Escalar</h3>
+                        <p class="mt-2">Una cantidad que solo tiene <strong>magnitud</strong> (un número). Ejemplos: 5 metros, 10 segundos, 2 kilogramos.</p>
+                    </div>
+                    <div class="bg-purple-700 p-6 rounded-xl">
+                        <h3 class="font-bold text-xl text-yellow-300">Vector</h3>
+                        <p class="mt-2">Una cantidad que tiene <strong>magnitud y dirección</strong>. Ejemplos: 5 metros <strong>hacia el este</strong>, 9.8 m/s² <strong>hacia abajo</strong>.</p>
+                        <svg class="w-24 h-auto mx-auto mt-4" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 15H95M95 15L80 5M95 15L80 25" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Conceptos Clave -->
+            <div id="slide-3" class="slide">
+                <h2 class="text-3xl font-bold text-yellow-300 mb-4">Conceptos Clave</h2>
+                <ul class="space-y-4 text-lg">
+                    <li><strong class="text-yellow-300">Posición (x):</strong> La ubicación de un objeto en un eje de coordenadas.</li>
+                    <li><strong class="text-yellow-300">Desplazamiento (Δx):</strong> El cambio en la posición de un objeto. Es un vector. Se calcula: <code class="bg-purple-900 px-2 py-1 rounded">Δx = x_final - x_inicial</code></li>
+                    <li><strong class="text-yellow-300">Intervalo de Tiempo (Δt):</strong> La duración entre dos eventos. Se calcula: <code class="bg-purple-900 px-2 py-1 rounded">Δt = t_final - t_inicial</code></li>
+                    <li><strong class="text-yellow-300">Velocidad Promedio (v):</strong> La tasa de cambio de la posición. Es el desplazamiento dividido por el tiempo. <code class="bg-purple-900 px-2 py-1 rounded">v = Δx / Δt</code></li>
+                </ul>
+            </div>
+            
+            <!-- Slide 4: Ecuación de Movimiento -->
+            <div id="slide-4" class="slide">
+                <h2 class="text-3xl font-bold text-yellow-300 mb-4">Ecuación de Movimiento (Velocidad Constante)</h2>
+                <p class="text-lg text-purple-200">Si un objeto se mueve con velocidad constante, podemos predecir su posición futura con esta fórmula:</p>
+                <div class="my-6 p-6 bg-purple-900 rounded-xl text-center">
+                    <p class="text-3xl font-mono text-yellow-300">x = x₀ + v⋅t</p>
+                </div>
+                <ul class="space-y-2 text-lg">
+                    <li><code class="text-yellow-300">x</code> = Posición final</li>
+                    <li><code class="text-yellow-300">x₀</code> = Posición inicial (en t=0)</li>
+                    <li><code class="text-yellow-300">v</code> = Velocidad constante</li>
+                    <li><code class="text-yellow-300">t</code> = Tiempo transcurrido</li>
+                </ul>
+            </div>
+
+            <!-- Slide 5: Ejemplo Interactivo -->
+            <div id="slide-5" class="slide">
+                <h2 class="text-3xl font-bold text-yellow-300 mb-4">Ejemplo Interactivo</h2>
+                <p class="text-lg text-purple-200">Un ciclista parte de la marca de 5 metros y viaja a una velocidad constante de 10 m/s. ¿Cuál será su posición después de 7 segundos?</p>
+                <button onclick="toggleAnswer(this)" class="mt-6 bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold py-2 px-4 rounded-full">
+                    Mostrar Respuesta
+                </button>
+                <div class="answer bg-purple-900 p-4 rounded-lg">
+                    <p><strong>Datos:</strong></p>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>Posición inicial (x₀) = 5 m</li>
+                        <li>Velocidad (v) = 10 m/s</li>
+                        <li>Tiempo (t) = 7 s</li>
+                    </ul>
+                    <p class="mt-4"><strong>Fórmula:</strong> x = x₀ + v⋅t</p>
+                    <p><strong>Sustitución:</strong> x = 5 m + (10 m/s) ⋅ (7 s)</p>
+                    <p><strong>Cálculo:</strong> x = 5 m + 70 m</p>
+                    <p class="mt-4 text-yellow-300 font-bold text-xl">Respuesta: x = 75 m</p>
+                </div>
+            </div>
+
+            <!-- Slide 6: Gráfica Posición vs. Tiempo -->
+            <div id="slide-6" class="slide">
+                <h2 class="text-3xl font-bold text-yellow-300 mb-4">Gráfica: Posición vs. Tiempo</h2>
+                <p class="text-lg text-purple-200 mb-4">Para un movimiento con velocidad constante, la gráfica de posición (eje y) contra tiempo (eje x) es una línea recta.</p>
+                <div class="bg-white text-gray-800 p-4 rounded-xl">
+                    <p class="font-bold text-center">Posición de un objeto que parte de x=10m con v=5m/s</p>
+                    <svg class="w-full h-auto" viewBox="0 0 400 250">
+                        <!-- Axes -->
+                        <line x1="40" y1="220" x2="380" y2="220" stroke="black" stroke-width="2"/>
+                        <line x1="40" y1="220" x2="40" y2="20" stroke="black" stroke-width="2"/>
+                        <!-- Y-axis labels -->
+                        <text x="5" y="225" font-size="12">0</text>
+                        <text x="5" y="175" font-size="12">10</text>
+                        <text x="5" y="125" font-size="12">20</text>
+                        <text x="5" y="75" font-size="12">30</text>
+                        <text x="5" y="25" font-size="12">40</text>
+                        <text x="10" y="120" font-size="14" transform="rotate(-90 10,120)">Posición (m)</text>
+                        <!-- X-axis labels -->
+                        <text x="35" y="240" font-size="12">0</text>
+                        <text x="120" y="240" font-size="12">2</text>
+                        <text x="205" y="240" font-size="12">4</text>
+                        <text x="290" y="240" font-size="12">6</text>
+                        <text x="180" y="245" font-size="14">Tiempo (s)</text>
+                        <!-- Graph line -->
+                        <line x1="40" y1="170" x2="340" y2="20" stroke="#8B5CF6" stroke-width="3"/>
+                    </svg>
+                </div>
+                <p class="mt-4 text-lg">La <strong>pendiente (inclinación)</strong> de la línea representa la <strong>velocidad</strong>. Una línea más inclinada significa mayor velocidad.</p>
+            </div>
+
+            <!-- Slide 7: Ejercicio Interactivo -->
+            <div id="slide-7" class="slide">
+                <h2 class="text-3xl font-bold text-yellow-300 mb-4">¡Ahora tú!</h2>
+                <p class="text-lg text-purple-200">Un auto de juguete se mueve en línea recta. Comienza en la posición x = 20 cm. Si después de 4 segundos está en la posición x = 4 cm, ¿cuál fue su velocidad promedio? (¡Cuidado con la dirección!)</p>
+                <button onclick="toggleAnswer(this)" class="mt-6 bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold py-2 px-4 rounded-full">
+                    Mostrar Respuesta
+                </button>
+                <div class="answer bg-purple-900 p-4 rounded-lg">
+                    <p><strong>Datos:</strong></p>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>Posición inicial (x₀) = 20 cm</li>
+                        <li>Posición final (x) = 4 cm</li>
+                        <li>Tiempo (t) = 4 s</li>
+                    </ul>
+                    <p class="mt-4"><strong>Primero, calcula el desplazamiento (Δx):</strong></p>
+                    <p>Δx = x_final - x_inicial = 4 cm - 20 cm = -16 cm</p>
+                    <p class="mt-4"><strong>Ahora, calcula la velocidad (v):</strong></p>
+                    <p>v = Δx / t = -16 cm / 4 s</p>
+                    <p class="mt-4 text-yellow-300 font-bold text-xl">Respuesta: v = -4 cm/s</p>
+                    <p class="mt-2 text-purple-200">El signo negativo indica que el auto se movió en la dirección negativa del eje (hacia la izquierda o hacia atrás).</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="absolute bottom-4 left-0 right-0 px-8 flex justify-between mt-auto">
+                <button id="prevBtn" onclick="changeSlide(-1)" class="bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold py-2 px-6 rounded-full disabled:opacity-50 disabled:cursor-not-allowed">Anterior</button>
+                <button id="nextBtn" onclick="changeSlide(1)" class="bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold py-2 px-6 rounded-full">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(slideNumber) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            document.getElementById(`slide-${slideNumber}`).classList.add('active');
+            updateNavButtons();
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide > totalSlides) {
+                currentSlide = totalSlides;
+            }
+            if (currentSlide < 1) {
+                currentSlide = 1;
+            }
+            showSlide(currentSlide);
+        }
+        
+        function updateNavButtons() {
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        function toggleAnswer(button) {
+            const answerDiv = button.nextElementSibling;
+            answerDiv.classList.toggle('visible');
+            if (answerDiv.classList.contains('visible')) {
+                button.textContent = 'Ocultar Respuesta';
+            } else {
+                button.textContent = 'Mostrar Respuesta';
+            }
+        }
+
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>

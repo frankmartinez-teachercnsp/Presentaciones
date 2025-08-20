@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Internacional de Unidades (SI)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .quiz-option {
+            transition: background-color 0.2s;
+        }
+        .quiz-option.selected {
+            background-color: #dbeafe; /* blue-100 */
+        }
+        .quiz-option.correct {
+            background-color: #dcfce7; /* green-100 */
+            border-color: #22c55e; /* green-500 */
+        }
+        .quiz-option.incorrect {
+            background-color: #fee2e2; /* red-100 */
+            border-color: #ef4444; /* red-500 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-600">Sistema Internacional de Unidades (SI)</h1>
+            <p class="mt-2 text-lg text-gray-600">Una guía interactiva para la ciencia y la ingeniería.</p>
+        </header>
+
+        <!-- Pestañas de Navegación -->
+        <div class="mb-8 border-b border-gray-200">
+            <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                <button class="tab-button active text-lg font-medium mr-2 text-center py-4 px-1 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" onclick="changeTab(event, 'si')">Unidades SI</button>
+                <button class="tab-button text-lg font-medium mr-2 text-center py-4 px-1 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" onclick="changeTab(event, 'notacion')">Notación Científica</button>
+                <button class="tab-button text-lg font-medium mr-2 text-center py-4 px-1 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" onclick="changeTab(event, 'cifras')">Cifras Significativas</button>
+                <button class="tab-button text-lg font-medium mr-2 text-center py-4 px-1 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" onclick="changeTab(event, 'graficas')">Gráficas</button>
+            </nav>
+        </div>
+
+        <!-- Contenido de las Pestañas -->
+        <main>
+            <!-- Sección 1: Unidades SI -->
+            <div id="si" class="tab-content active">
+                <section class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4 text-blue-700">1. El Sistema Internacional de Unidades (SI)</h2>
+                    <p class="mb-4">El Sistema Internacional (SI) es el sistema de unidades estándar utilizado en casi todo el mundo para la ciencia, la industria y el comercio. Proporciona una base coherente para las mediciones, asegurando que los resultados sean comprensibles y reproducibles globalmente.</p>
+                    <p class="mb-4">Se basa en siete <strong>unidades fundamentales</strong>:</p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="py-3 px-4 border-b text-left">Magnitud Física</th>
+                                    <th class="py-3 px-4 border-b text-left">Unidad Base</th>
+                                    <th class="py-3 px-4 border-b text-left">Símbolo</th>
+                                    <th class="py-3 px-4 border-b text-left">Ejemplo Común</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="py-3 px-4 border-b">Longitud</td><td class="py-3 px-4 border-b">Metro</td><td class="py-3 px-4 border-b font-mono">m</td><td class="py-3 px-4 border-b">La altura de una puerta (aprox. 2 m)</td></tr>
+                                <tr><td class="py-3 px-4 border-b">Masa</td><td class="py-3 px-4 border-b">Kilogramo</td><td class="py-3 px-4 border-b font-mono">kg</td><td class="py-3 px-4 border-b">Una bolsa de azúcar (1 kg)</td></tr>
+                                <tr><td class="py-3 px-4 border-b">Tiempo</td><td class="py-3 px-4 border-b">Segundo</td><td class="py-3 px-4 border-b font-mono">s</td><td class="py-3 px-4 border-b">La duración de un parpadeo (aprox. 0.3 s)</td></tr>
+                                <tr><td class="py-3 px-4 border-b">Corriente Eléctrica</td><td class="py-3 px-4 border-b">Amperio</td><td class="py-3 px-4 border-b font-mono">A</td><td class="py-3 px-4 border-b">Corriente de un cargador de móvil (1-2 A)</td></tr>
+                                <tr><td class="py-3 px-4 border-b">Temperatura</td><td class="py-3 px-4 border-b">Kelvin</td><td class="py-3 px-4 border-b font-mono">K</td><td class="py-3 px-4 border-b">Temperatura ambiente (aprox. 293 K)</td></tr>
+                                <tr><td class="py-3 px-4 border-b">Cantidad de Sustancia</td><td class="py-3 px-4 border-b">Mol</td><td class="py-3 px-4 border-b font-mono">mol</td><td class="py-3 px-4 border-b">18g de agua es aproximadamente 1 mol</td></tr>
+                                <tr><td class="py-3 px-4 border-b">Intensidad Luminosa</td><td class="py-3 px-4 border-b">Candela</td><td class="py-3 px-4 border-b font-mono">cd</td><td class="py-3 px-4 border-b">La luz de una vela (aprox. 1 cd)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-4">A partir de estas unidades base, se derivan otras unidades como el Newton (N) para la fuerza o el Pascal (Pa) para la presión.</p>
+                </section>
+                <!-- Autoevaluación SI -->
+                <section class="bg-blue-50 mt-6 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-blue-800">¡Ponte a prueba! - Unidades SI</h3>
+                    <div id="quiz-si"></div>
+                    <button class="mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" onclick="submitQuiz('si')">Evaluar</button>
+                    <div id="result-si" class="mt-4 font-bold"></div>
+                </section>
+            </div>
+
+            <!-- Sección 2: Notación Científica -->
+            <div id="notacion" class="tab-content">
+                <section class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4 text-green-700">2. Notación Científica</h2>
+                    <p class="mb-4">La notación científica es una forma de escribir números muy grandes o muy pequeños de manera compacta. Se expresa como un número entre 1 y 10 multiplicado por una potencia de 10.</p>
+                    <p class="mb-2"><strong>Formato:</strong> $a \times 10^n$</p>
+                    <ul class="list-disc list-inside mb-4 pl-4">
+                        <li><strong>a</strong>: Es un número mayor o igual que 1 y menor que 10 (el coeficiente).</li>
+                        <li><strong>n</strong>: Es un número entero (el exponente).</li>
+                    </ul>
+                    <h4 class="font-bold mb-2">Ejemplos:</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-semibold">Números Grandes</h5>
+                            <p>La distancia de la Tierra al Sol es aproximadamente 149,600,000,000 metros.</p>
+                            <p class="font-mono text-green-600 text-lg mt-2">1.496 x 10<sup>11</sup> m</p>
+                            <p class="text-sm mt-1">(El punto decimal se movió 11 lugares a la izquierda).</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h5 class="font-semibold">Números Pequeños</h5>
+                            <p>El diámetro de un átomo de hidrógeno es aproximadamente 0.000000000106 metros.</p>
+                            <p class="font-mono text-green-600 text-lg mt-2">1.06 x 10<sup>-10</sup> m</p>
+                            <p class="text-sm mt-1">(El punto decimal se movió 10 lugares a la derecha).</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- Autoevaluación Notación Científica -->
+                <section class="bg-green-50 mt-6 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-green-800">¡Ponte a prueba! - Notación Científica</h3>
+                    <div id="quiz-notacion"></div>
+                    <button class="mt-4 bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700" onclick="submitQuiz('notacion')">Evaluar</button>
+                    <div id="result-notacion" class="mt-4 font-bold"></div>
+                </section>
+            </div>
+
+            <!-- Sección 3: Cifras Significativas -->
+            <div id="cifras" class="tab-content">
+                <section class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4 text-yellow-700">3. Cifras Significativas</h2>
+                    <p class="mb-4">Las cifras significativas de un número son los dígitos que aportan información real sobre la precisión de una medida. Indican la certeza de un valor.</p>
+                    <h4 class="font-bold mb-2">Reglas para determinarlas:</h4>
+                    <ul class="list-decimal list-inside mb-4 pl-4 space-y-2">
+                        <li>Los dígitos distintos de cero <strong>siempre</strong> son significativos. (Ej: <strong>123</strong> tiene 3 c.s.)</li>
+                        <li>Los ceros entre dígitos distintos de cero son significativos. (Ej: <strong>101</strong>.5 tiene 4 c.s.)</li>
+                        <li>Los ceros a la izquierda del primer dígito no nulo <strong>no</strong> son significativos. (Ej: 0.0<strong>85</strong> tiene 2 c.s.)</li>
+                        <li>Para números con punto decimal, los ceros al final del número son significativos. (Ej: <strong>2.500</strong> tiene 4 c.s.)</li>
+                        <li>Para números sin punto decimal, los ceros finales pueden ser ambiguos. Se usa notación científica para aclarar. (Ej: 300 puede tener 1, 2 o 3 c.s. Se escribe <strong>3</strong> x 10<sup>2</sup> (1 c.s.), <strong>3.0</strong> x 10<sup>2</sup> (2 c.s.), o <strong>3.00</strong> x 10<sup>2</sup> (3 c.s.)).</li>
+                    </ul>
+                     <h4 class="font-bold mb-2">En cálculos:</h4>
+                    <ul class="list-disc list-inside mb-4 pl-4 space-y-2">
+                        <li><strong>Suma y Resta:</strong> El resultado se redondea al mismo número de decimales que el término con menos decimales. (Ej: 12.11 + 18.0 + 1.013 = 31.123 → <strong>31.1</strong>)</li>
+                        <li><strong>Multiplicación y División:</strong> El resultado se redondea al mismo número de cifras significativas que el factor con menos cifras significativas. (Ej: 4.56 × 1.4 = 6.384 → <strong>6.4</strong>)</li>
+                    </ul>
+                </section>
+                 <!-- Autoevaluación Cifras Significativas -->
+                <section class="bg-yellow-50 mt-6 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-yellow-800">¡Ponte a prueba! - Cifras Significativas</h3>
+                    <div id="quiz-cifras"></div>
+                    <button class="mt-4 bg-yellow-600 text-white font-bold py-2 px-4 rounded hover:bg-yellow-700" onclick="submitQuiz('cifras')">Evaluar</button>
+                    <div id="result-cifras" class="mt-4 font-bold"></div>
+                </section>
+            </div>
+
+            <!-- Sección 4: Gráficas -->
+            <div id="graficas" class="tab-content">
+                <section class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4 text-purple-700">4. Representación de Datos en Gráficas</h2>
+                    <p class="mb-4">Las gráficas son herramientas visuales poderosas para analizar datos, identificar patrones y comunicar resultados de manera efectiva.</p>
+                    <h4 class="font-bold mb-2">Componentes Clave de una Gráfica:</h4>
+                    <ul class="list-disc list-inside mb-4 pl-4 space-y-2">
+                        <li><strong>Título:</strong> Describe claramente de qué trata la gráfica.</li>
+                        <li><strong>Eje X (Abscisa):</strong> Representa la variable independiente. Debe tener una etiqueta y unidades.</li>
+                        <li><strong>Eje Y (Ordenada):</strong> Representa la variable dependiente. Debe tener una etiqueta y unidades.</li>
+                        <li><strong>Escala:</strong> Los intervalos en los ejes deben ser consistentes y apropiados para los datos.</li>
+                        <li><strong>Puntos de Datos:</strong> Marcas que representan las mediciones.</li>
+                        <li><strong>Línea de Tendencia:</strong> Una línea (recta o curva) que muestra la relación general entre las variables.</li>
+                    </ul>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h5 class="font-semibold mb-2">Ejemplo: Gráfica de Distancia vs. Tiempo</h5>
+                        <p class="mb-4">Imagina que mides la distancia que recorre un coche cada segundo. Podrías graficar estos datos para visualizar su velocidad.</p>
+                        <div class="border border-gray-300 p-4 rounded-md">
+                            <!-- Placeholder para una gráfica -->
+                            <div class="w-full h-64 bg-white relative">
+                                <!-- Ejes -->
+                                <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gray-400"></div>
+                                <div class="absolute bottom-0 left-0 w-0.5 h-full bg-gray-400"></div>
+                                <!-- Etiquetas de ejes -->
+                                <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-sm">Tiempo (s)</span>
+                                <span class="absolute -left-12 top-1/2 -translate-y-1/2 rotate-[-90deg] text-sm">Distancia (m)</span>
+                                <!-- Título -->
+                                <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-md font-semibold">Movimiento de un Coche</span>
+                                <!-- Puntos de datos y línea (simulados) -->
+                                <div class="absolute w-2 h-2 bg-purple-600 rounded-full" style="bottom: 20%; left: 15%;"></div>
+                                <div class="absolute w-2 h-2 bg-purple-600 rounded-full" style="bottom: 40%; left: 35%;"></div>
+                                <div class="absolute w-2 h-2 bg-purple-600 rounded-full" style="bottom: 60%; left: 55%;"></div>
+                                <div class="absolute w-2 h-2 bg-purple-600 rounded-full" style="bottom: 80%; left: 75%;"></div>
+                                <svg class="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                    <line x1="16" y1="80" x2="76" y2="20" stroke="#a855f7" stroke-width="1" />
+                                </svg>
+                            </div>
+                        </div>
+                         <p class="mt-4">En esta gráfica, el tiempo es la variable independiente (eje X) y la distancia es la dependiente (eje Y). La línea recta ascendente indica una velocidad constante.</p>
+                    </div>
+                </section>
+                <!-- Autoevaluación Gráficas -->
+                <section class="bg-purple-50 mt-6 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-purple-800">¡Ponte a prueba! - Gráficas</h3>
+                    <div id="quiz-graficas"></div>
+                    <button class="mt-4 bg-purple-600 text-white font-bold py-2 px-4 rounded hover:bg-purple-700" onclick="submitQuiz('graficas')">Evaluar</button>
+                    <div id="result-graficas" class="mt-4 font-bold"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // --- Lógica de Pestañas ---
+        function changeTab(event, tabId) {
+            // Ocultar todo el contenido
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            // Desactivar todos los botones
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+
+            // Mostrar el contenido de la pestaña seleccionada
+            document.getElementById(tabId).classList.add('active');
+            // Activar el botón seleccionado
+            event.currentTarget.classList.add('active');
+        }
+
+        // --- Lógica de los Quizzes ---
+        const quizzes = {
+            si: {
+                questions: [
+                    { q: "¿Cuál es la unidad base de la masa en el SI?", o: ["Gramo", "Kilogramo", "Libra"], a: "Kilogramo" },
+                    { q: "El símbolo 's' corresponde a la unidad de:", o: ["Sustancia", "Segundo", "Sistema"], a: "Segundo" },
+                    { q: "La temperatura en el SI se mide en:", o: ["Celsius", "Fahrenheit", "Kelvin"], a: "Kelvin" }
+                ]
+            },
+            notacion: {
+                questions: [
+                    { q: "¿Cómo se escribe 54,300 en notación científica?", o: ["5.43 x 10^3", "54.3 x 10^3", "5.43 x 10^4"], a: "5.43 x 10^4" },
+                    { q: "¿Qué número representa 2.1 x 10^-3?", o: ["2100", "0.0021", "0.021"], a: "0.0021" },
+                    { q: "La velocidad de la luz es aprox. 300,000,000 m/s. En notación científica es:", o: ["3 x 10^8 m/s", "3 x 10^9 m/s", "30 x 10^7 m/s"], a: "3 x 10^8 m/s" }
+                ]
+            },
+            cifras: {
+                questions: [
+                    { q: "¿Cuántas cifras significativas tiene el número 0.05020?", o: ["3", "4", "5"], a: "4" },
+                    { q: "Calcula 2.5 x 3.42 con las c.s. correctas:", o: ["8.55", "8.6", "9"], a: "8.6" },
+                    { q: "Calcula 27.1 + 1.23 + 0.987 con las c.s. correctas:", o: ["29.317", "29.32", "29.3"], a: "29.3" }
+                ]
+            },
+            graficas: {
+                questions: [
+                    { q: "En una gráfica, la variable que manipulas o cambias a propósito va en el:", o: ["Eje Y (ordenada)", "Título", "Eje X (abscisa)"], a: "Eje X (abscisa)" },
+                    { q: "Si graficas la temperatura de una taza de café a lo largo del tiempo, ¿qué variable va en el eje Y?", o: ["Tiempo", "Temperatura", "Color del café"], a: "Temperatura" },
+                    { q: "¿Qué elemento de la gráfica describe de qué se tratan los datos?", o: ["La escala", "El título", "La línea de tendencia"], a: "El título" }
+                ]
+            }
+        };
+
+        function renderQuiz(quizId) {
+            const quizContainer = document.getElementById(`quiz-${quizId}`);
+            const quizData = quizzes[quizId];
+            let html = '';
+            quizData.questions.forEach((item, index) => {
+                html += `<div class="mb-4" id="q-${quizId}-${index}">`;
+                html += `<p class="font-semibold mb-2">${index + 1}. ${item.q}</p>`;
+                html += `<div class="space-y-2">`;
+                item.o.forEach(option => {
+                    html += `<label class="quiz-option block p-3 border-2 border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100">`;
+                    html += `<input type="radio" name="q${quizId}${index}" value="${option}" class="mr-2">`;
+                    html += option;
+                    html += `</label>`;
+                });
+                html += `</div></div>`;
+            });
+            quizContainer.innerHTML = html;
+        }
+
+        function submitQuiz(quizId) {
+            const quizData = quizzes[quizId];
+            let score = 0;
+            quizData.questions.forEach((item, index) => {
+                const qContainer = document.getElementById(`q-${quizId}-${index}`);
+                const selected = qContainer.querySelector(`input[name="q${quizId}${index}"]:checked`);
+                const labels = qContainer.querySelectorAll('label');
+                
+                labels.forEach(label => {
+                    label.classList.remove('correct', 'incorrect');
+                    const radio = label.querySelector('input');
+                    if (radio.value === item.a) {
+                        label.classList.add('correct');
+                    }
+                });
+
+                if (selected) {
+                    const selectedLabel = selected.parentElement;
+                    if (selected.value === item.a) {
+                        score++;
+                    } else {
+                        selectedLabel.classList.add('incorrect');
+                    }
+                }
+            });
+
+            const resultContainer = document.getElementById(`result-${quizId}`);
+            const total = quizData.questions.length;
+            resultContainer.innerHTML = `Tu puntuación: ${score} de ${total}.`;
+            if (score === total) {
+                resultContainer.className = 'mt-4 font-bold text-green-600';
+            } else {
+                resultContainer.className = 'mt-4 font-bold text-red-600';
+            }
+        }
+
+        // Inicializar todos los quizzes al cargar la página
+        window.onload = () => {
+            renderQuiz('si');
+            renderQuiz('notacion');
+            renderQuiz('cifras');
+            renderQuiz('graficas');
+        };
+    </script>
+</body>
+</html>

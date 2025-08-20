@@ -1,0 +1,75 @@
+/* General Body Styles */
+body {
+    background-color: #FFFDE7; /* A soft, pale yellow */
+    color: #4A148C; /* Deep purple for text */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    background-color: #6A1B9A; /* Rich purple */
+    color: #FDD835; /* Bright yellow */
+    padding: 2rem 1rem;
+    border-bottom: 5px solid #FDD835;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Main Content Area */
+main {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto; /* Centers the content */
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Chapter List Styles */
+.chapter-list {
+    list-style-type: none; /* Removes the default list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-list li {
+    margin: 1rem 0;
+}
+
+/* Interactive Button Styles */
+.chapter-list a {
+    display: block; /* Makes the entire area clickable */
+    background-color: #8E24AA; /* A lighter purple for buttons */
+    color: #FFFFFF; /* White text for contrast */
+    text-decoration: none; /* Removes the underline from links */
+    padding: 1rem;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+}
+
+/* Hover Effect for Buttons */
+.chapter-list a:hover {
+    background-color: #6A1B9A; /* Darkens the button on hover */
+    transform: translateY(-3px); /* Lifts the button slightly */
+    color: #FDD835; /* Changes text to yellow on hover */
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: #F5F5F5; /* A light grey for the footer */
+    color: #4A148C;
+    font-size: 0.9rem;
+}
