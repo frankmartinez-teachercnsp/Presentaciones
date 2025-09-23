@@ -3,217 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentación Interactiva de Física</title>
+    <title>Ejercicios: Movimiento Acelerado</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #0D47A1;
+            --secondary-blue: #42A5F5;
+            --accent-orange: #FF7043;
+            --light-gray: #F5F5F5;
+            --dark-text: #333;
+            --solution-bg: #E8F5E9; /* A light green background for solutions */
+            --solution-border: #4CAF50;
+        }
         body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-text);
         }
-        /* Clase para ocultar las diapositivas por defecto */
-        .slide {
+        h1, h2, h3 {
+            color: var(--primary-blue);
+        }
+        .solution-box {
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            background-color: var(--solution-bg);
+            border-left: 4px solid var(--solution-border);
         }
-        /* Clase para mostrar la diapositiva activa */
-        .active-slide {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .formula-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--primary-blue);
+            color: #1e3a8a;
         }
     </style>
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
-
-    <!-- Contenedor principal de la presentación -->
-    <div class="w-full max-w-3xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
-        <div class="p-8 md:p-12">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Ejercicios de Física</h1>
-            <h2 class="text-xl text-gray-500 mb-8">Movimiento en una Dimensión: Velocidad Constante</h2>
-
-            <!-- Contenedor de las diapositivas -->
-            <div id="slides-container" class="relative min-h-[350px] md:min-h-[300px]">
-                <!-- Diapositiva 1 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 1: Encuentro de Trenes</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Dos trenes, A y B, se encuentran en vías paralelas separadas por una distancia de <strong>300 km</strong>. El tren A sale de la estación Este hacia el Oeste a una velocidad constante de <strong>60 km/h</strong>. Simultáneamente, el tren B sale de la estación Oeste hacia el Este a una velocidad constante de <strong>90 km/h</strong>.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Preguntas:</p>
-                        <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
-                            <li>¿En cuánto tiempo se encontrarán los trenes?</li>
-                            <li>¿A qué distancia de la estación Este se encontrarán?</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Diapositiva 2 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 2: La Carrera</h3>
-                     <p class="text-gray-700 leading-relaxed text-lg">
-                        Ana y Beatriz comienzan una carrera de <strong>100 metros</strong> en el mismo punto y al mismo tiempo. Ana corre a una velocidad constante de <strong>8 m/s</strong>, mientras que Beatriz corre a <strong>6 m/s</strong>.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿Qué ventaja de distancia tendrá Ana sobre Beatriz cuando Ana cruce la línea de meta?</p>
-                    </div>
-                </div>
-                 <!-- Diapositiva 3 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 3: Viaje de Ida y Vuelta</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Un ciclista viaja de la ciudad P a la ciudad Q a una velocidad constante de <strong>20 km/h</strong> y regresa inmediatamente de Q a P a una velocidad constante de <strong>30 km/h</strong>. La distancia entre las dos ciudades es de <strong>60 km</strong>.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿Cuál es la velocidad promedio del ciclista para todo el viaje?</p>
-                    </div>
-                </div>
-                <!-- Diapositiva 4 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 4: El Sonido del Rayo</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Durante una tormenta, observas un relámpago y <strong>4.5 segundos</strong> después escuchas el trueno. Considera que la velocidad del sonido en el aire es de <strong>343 m/s</strong>.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿A qué distancia de ti cayó el rayo?</p>
-                    </div>
-                </div>
-                <!-- Diapositiva 5 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 5: El Atleta con Ventaja</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        En una pista recta, un corredor A parte del origen a una velocidad constante de <strong>5 m/s</strong>. Tres segundos después, un corredor B parte del mismo origen a una velocidad constante de <strong>7 m/s</strong> para alcanzar al corredor A.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿A qué distancia del origen el corredor B alcanzará al corredor A?</p>
-                    </div>
-                </div>
-                <!-- Diapositiva 6 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 6: Viaje en Dos Etapas</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Un automóvil viaja durante <strong>2 horas</strong> a una velocidad de <strong>90 km/h</strong>. Luego, reduce su velocidad a <strong>60 km/h</strong> durante la siguiente <strong>hora y media</strong> (1.5 horas).
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿Cuál fue la distancia total recorrida por el automóvil?</p>
-                    </div>
-                </div>
-                <!-- Diapositiva 7 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 7: Gráfico de Posición vs. Tiempo</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Un objeto se mueve a lo largo del eje x. Su posición inicial en $t=0$ s es $x = 10$ m. Después de 5 segundos, su posición es $x = -15$ m.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">Suponiendo que su velocidad fue constante, ¿cuál era su velocidad?</p>
-                    </div>
-                </div>
-                <!-- Diapositiva 8 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 8: El Barco y la Corriente</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Un barco viaja río abajo a una velocidad de <strong>18 m/s</strong> con respecto a la orilla. En su viaje de regreso río arriba, su velocidad con respecto a la orilla es de <strong>10 m/s</strong>.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿Cuál es la velocidad del barco en aguas tranquilas y cuál es la velocidad de la corriente del río?</p>
-                    </div>
-                </div>
-                <!-- Diapositiva 9 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 9: Dos Partículas</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Una partícula A se encuentra en la posición $x = -20$ m en $t=0$ s y se mueve con una velocidad constante de <strong>15 m/s</strong>. Una segunda partícula B parte del origen ($x = 0$) en $t=0$ s.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿Qué velocidad constante debe tener la partícula B para que ambas partículas colisionen en la posición $x = 40$ m?</p>
-                    </div>
-                </div>
-                <!-- Diapositiva 10 -->
-                <div class="slide">
-                    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">Ejercicio 10: La Sombra que Crece</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Un poste vertical de <strong>3 metros</strong> de altura proyecta una sombra. Un hombre de <strong>1.80 metros</strong> de altura se aleja de la base del poste a una velocidad constante de <strong>1.5 m/s</strong>.
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-semibold text-gray-800">Pregunta:</p>
-                        <p class="mt-2 text-gray-700">¿A qué velocidad se mueve la punta de la sombra del hombre sobre el suelo?</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navegación -->
-            <div class="mt-8 pt-6 border-t border-gray-200 flex justify-between items-center">
-                <button id="prevBtn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-5 rounded-lg transition duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center shadow-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
-                    Anterior
-                </button>
-                <div id="slide-counter" class="text-gray-600 font-medium text-sm"></div>
-                <button id="nextBtn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-5 rounded-lg transition duration-300 flex items-center shadow-md">
-                    Siguiente
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Lógica de JavaScript para la navegación de diapositivas
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        const prevButton = document.getElementById('prevBtn');
-        const nextButton = document.getElementById('nextBtn');
-        const slideCounter = document.getElementById('slide-counter');
-
-        function showSlide(index) {
-            // Oculta todas las diapositivas
-            slides.forEach(slide => {
-                slide.classList.remove('active-slide');
-            });
-
-            // Muestra la diapositiva correcta con una transición
-            if (slides[index]) {
-                slides[index].classList.add('active-slide');
+        function toggleSolution(id) {
+            const solution = document.getElementById('solucion' + id);
+            const button = document.getElementById('boton' + id);
+            if (solution.style.display === 'block') {
+                solution.style.display = 'none';
+                button.textContent = 'Mostrar Solución';
+            } else {
+                solution.style.display = 'block';
+                button.textContent = 'Ocultar Solución';
             }
-
-            // Actualiza el contador
-            slideCounter.textContent = `Problema ${index + 1} de ${totalSlides}`;
-
-            // Habilita o deshabilita los botones de navegación
-            prevButton.disabled = index === 0;
-            nextButton.disabled = index === totalSlides - 1;
         }
-
-        // Event listener para el botón "Siguiente"
-        nextButton.addEventListener('click', () => {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                showSlide(currentSlide);
-            }
-        });
-
-        // Event listener para el botón "Anterior"
-        prevButton.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                currentSlide--;
-                showSlide(currentSlide);
-            }
-        });
-
-        // Muestra la primera diapositiva al cargar la página
-        document.addEventListener('DOMContentLoaded', () => {
-            showSlide(currentSlide);
-        });
     </script>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold">Ejercicios de Práctica: Movimiento Acelerado</h1>
+            <p class="mt-2 text-lg text-gray-600">Pon a prueba tus conocimientos de cinemática.</p>
+        </header>
+
+        <main class="space-y-8">
+            <!-- Ejercicio 1 -->
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-3">Ejercicio 1: Calcular la Aceleración</h2>
+                <p class="mb-4">Un tren de alta velocidad parte del reposo y alcanza una velocidad de 75 m/s en 15 segundos. Asumiendo que su aceleración es constante, ¿cuál es el valor de su aceleración media?</p>
+                <button id="boton1" onclick="toggleSolution(1)" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Mostrar Solución</button>
+                <div id="solucion1" class="solution-box mt-4 p-4 rounded-r-lg">
+                    <h3 class="font-bold text-lg mb-2 text-green-800">Solución Detallada</h3>
+                    <p class="mb-2"><strong>Fórmula a utilizar:</strong></p>
+                    <div class="formula-box p-3 rounded-lg mb-3">
+                        <p class="text-md font-mono text-center">a = (v<sub>f</sub> - v<sub>i</sub>) / t</p>
+                    </div>
+                    <p class="mb-2"><strong>Datos:</strong></p>
+                    <ul class="list-disc list-inside pl-4 mb-3">
+                        <li>Velocidad inicial (v<sub>i</sub>) = 0 m/s (parte del reposo)</li>
+                        <li>Velocidad final (v<sub>f</sub>) = 75 m/s</li>
+                        <li>Tiempo (t) = 15 s</li>
+                    </ul>
+                    <p class="mb-2"><strong>Cálculo:</strong></p>
+                    <p class="font-mono bg-white p-2 rounded">a = (75 m/s - 0 m/s) / 15 s = 5 m/s²</p>
+                    <p class="mt-3 font-bold text-green-900">Respuesta: La aceleración media del tren es de 5 m/s².</p>
+                </div>
+            </section>
+
+            <!-- Ejercicio 2 -->
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-3">Ejercicio 2: Calcular la Velocidad Final</h2>
+                <p class="mb-4">Un coche de carreras que viaja a 20 m/s acelera a razón de 4 m/s² durante 7 segundos. ¿Cuál es su velocidad final?</p>
+                <button id="boton2" onclick="toggleSolution(2)" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Mostrar Solución</button>
+                <div id="solucion2" class="solution-box mt-4 p-4 rounded-r-lg">
+                    <h3 class="font-bold text-lg mb-2 text-green-800">Solución Detallada</h3>
+                    <p class="mb-2"><strong>Fórmula a utilizar:</strong></p>
+                    <div class="formula-box p-3 rounded-lg mb-3">
+                        <p class="text-md font-mono text-center">v<sub>f</sub> = v<sub>i</sub> + a * t</p>
+                    </div>
+                    <p class="mb-2"><strong>Datos:</strong></p>
+                    <ul class="list-disc list-inside pl-4 mb-3">
+                        <li>Velocidad inicial (v<sub>i</sub>) = 20 m/s</li>
+                        <li>Aceleración (a) = 4 m/s²</li>
+                        <li>Tiempo (t) = 7 s</li>
+                    </ul>
+                    <p class="mb-2"><strong>Cálculo:</strong></p>
+                    <p class="font-mono bg-white p-2 rounded">v<sub>f</sub> = 20 m/s + (4 m/s² * 7 s) = 20 m/s + 28 m/s = 48 m/s</p>
+                    <p class="mt-3 font-bold text-green-900">Respuesta: La velocidad final del coche es de 48 m/s.</p>
+                </div>
+            </section>
+            
+            <!-- Ejercicio 3 -->
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-3">Ejercicio 3: Calcular la Posición</h2>
+                <p class="mb-4">Una canica parte del reposo en la parte superior de una rampa y rueda hacia abajo con una aceleración constante de 2.5 m/s². ¿Qué distancia ha recorrido después de 4 segundos?</p>
+                <button id="boton3" onclick="toggleSolution(3)" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Mostrar Solución</button>
+                <div id="solucion3" class="solution-box mt-4 p-4 rounded-r-lg">
+                    <h3 class="font-bold text-lg mb-2 text-green-800">Solución Detallada</h3>
+                    <p class="mb-2"><strong>Fórmula a utilizar:</strong></p>
+                    <div class="formula-box p-3 rounded-lg mb-3">
+                        <p class="text-md font-mono text-center">x<sub>f</sub> = x<sub>i</sub> + v<sub>i</sub>*t + ½*a*t²</p>
+                    </div>
+                    <p class="mb-2"><strong>Datos:</strong></p>
+                    <ul class="list-disc list-inside pl-4 mb-3">
+                        <li>Posición inicial (x<sub>i</sub>) = 0 m</li>
+                        <li>Velocidad inicial (v<sub>i</sub>) = 0 m/s (parte del reposo)</li>
+                        <li>Aceleración (a) = 2.5 m/s²</li>
+                        <li>Tiempo (t) = 4 s</li>
+                    </ul>
+                    <p class="mb-2"><strong>Cálculo:</strong></p>
+                    <p class="font-mono bg-white p-2 rounded">x<sub>f</sub> = 0 + (0*4) + 0.5 * 2.5 m/s² * (4 s)² = 0.5 * 2.5 * 16 = 20 m</p>
+                    <p class="mt-3 font-bold text-green-900">Respuesta: La canica ha recorrido 20 metros.</p>
+                </div>
+            </section>
+
+            <!-- Ejercicio 4 -->
+            <section class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-3">Ejercicio 4: Relación sin Tiempo</h2>
+                <p class="mb-4">Un ciclista frena uniformemente desde una velocidad de 12 m/s hasta detenerse por completo en una distancia de 30 metros. ¿Cuál fue su aceleración?</p>
+                <button id="boton4" onclick="toggleSolution(4)" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Mostrar Solución</button>
+                <div id="solucion4" class="solution-box mt-4 p-4 rounded-r-lg">
+                    <h3 class="font-bold text-lg mb-2 text-green-800">Solución Detallada</h3>
+                    <p class="mb-2"><strong>Fórmula a utilizar:</strong></p>
+                    <div class="formula-box p-3 rounded-lg mb-3">
+                        <p class="text-md font-mono text-center">v<sub>f</sub>² = v<sub>i</sub>² + 2*a*Δx</p>
+                    </div>
+                     <p class="mb-2"><strong>Despejamos 'a':</strong> a = (v<sub>f</sub>² - v<sub>i</sub>²) / (2*Δx)</p>
+                    <p class="mb-2"><strong>Datos:</strong></p>
+                    <ul class="list-disc list-inside pl-4 mb-3">
+                        <li>Velocidad inicial (v<sub>i</sub>) = 12 m/s</li>
+                        <li>Velocidad final (v<sub>f</sub>) = 0 m/s (se detiene)</li>
+                        <li>Desplazamiento (Δx) = 30 m</li>
+                    </ul>
+                    <p class="mb-2"><strong>Cálculo:</strong></p>
+                    <p class="font-mono bg-white p-2 rounded">a = (0² - 12²) / (2 * 30) = -144 / 60 = -2.4 m/s²</p>
+                    <p class="mt-3 font-bold text-green-900">Respuesta: La aceleración fue de -2.4 m/s². El signo negativo indica que es una desaceleración.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
 
 </body>
 </html>
