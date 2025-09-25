@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física: Fuerzas en Una Dimensión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1A237E; /* Indigo */
+            --secondary-teal: #00796B;
+            --light-bg: #FAFAFA;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-button.active {
+            border-color: var(--primary-navy);
+            color: var(--primary-navy);
+            background-color: white;
+        }
+        h1, h2, h3 {
+            color: var(--primary-navy);
+        }
+        .formula-box {
+            background-color: #E8EAF6; /* Indigo lighten-5 */
+            border-left: 4px solid var(--primary-navy);
+            color: #1A237E;
+        }
+         .info-box {
+            background-color: white;
+            border-left: 4px solid var(--secondary-teal);
+            color: #37474F;
+        }
+    </style>
+    <script>
+        function changeTab(event, tabId) {
+            const tabElement = document.getElementById(tabId);
+            if (tabElement) {
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+                tabElement.classList.add('active');
+                event.currentTarget.classList.add('active');
+            }
+        }
+        window.onload = () => {
+             const firstTabButton = document.querySelector('.tab-button');
+             if(firstTabButton){
+                firstTabButton.click();
+             }
+        };
+    </script>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold">Fuerzas en Una Dimensión</h1>
+            <p class="mt-2 text-lg text-gray-600">Comprendiendo las interacciones que gobiernan el movimiento.</p>
+        </header>
+
+        <!-- Pestañas de Navegación -->
+        <div class="mb-8 border-b border-gray-300">
+            <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                <button class="tab-button active text-md font-medium mr-2 text-center py-3 px-2 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" onclick="changeTab(event, 'leyes')">Leyes de Newton</button>
+                <button class="tab-button text-md font-medium mr-2 text-center py-3 px-2 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300" onclick="changeTab(event, 'fuerzas')">Tipos de Fuerzas y Conceptos</button>
+            </nav>
+        </div>
+
+        <main>
+            <!-- 1. Leyes de Newton -->
+            <div id="leyes" class="tab-content active">
+                <section class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Los Principios Fundamentales del Movimiento</h2>
+                    <div class="space-y-8">
+                        <!-- Segunda Ley -->
+                        <div>
+                            <h3 class="font-bold text-xl mb-2" style="color: var(--secondary-teal);">Segunda Ley de Newton: La Ley de la Aceleración</h3>
+                            <p class="mb-4">Esta ley establece que la fuerza neta que actúa sobre un objeto es directamente proporcional a la aceleración que adquiere y a su masa. Es la piedra angular de la dinámica.</p>
+                            <p class="mb-4">En términos simples: para que un objeto con masa acelere (cambie su velocidad), se le debe aplicar una fuerza. Una fuerza mayor produce una aceleración mayor, y una masa mayor requiere una fuerza mayor para la misma aceleración.</p>
+                            <div class="formula-box p-4 rounded-lg">
+                                <p class="text-xl font-mono text-center">F<sub>neta</sub> = m * a</p>
+                            </div>
+                             <ul class="list-none pl-4 mt-2 space-y-1 text-gray-700">
+                                <li><strong>F<sub>neta</sub></strong>: Fuerza neta (en Newtons, N)</li>
+                                <li><strong>m</strong>: masa del objeto (en kilogramos, kg)</li>
+                                <li><strong>a</strong>: aceleración (en m/s²)</li>
+                            </ul>
+                        </div>
+                        <!-- Tercera Ley -->
+                        <div>
+                            <h3 class="font-bold text-xl mb-2" style="color: var(--secondary-teal);">Tercera Ley de Newton: Acción y Reacción</h3>
+                            <p class="mb-4">Esta ley postula que "a toda acción siempre se opone una reacción igual pero de sentido contrario". Esto significa que las fuerzas siempre ocurren en pares. Si un objeto A ejerce una fuerza sobre un objeto B, entonces el objeto B ejerce una fuerza igual en magnitud y opuesta en dirección sobre el objeto A.</p>
+                            <ul class="list-disc list-inside pl-4 space-y-2">
+                                <li><strong>Ejemplo 1 (Caminar):</strong> Empujas el suelo hacia atrás (acción), y el suelo te empuja hacia adelante (reacción), permitiéndote avanzar.</li>
+                                <li><strong>Ejemplo 2 (Cohete):</strong> El cohete expulsa gases hacia abajo (acción), y los gases empujan al cohete hacia arriba (reacción).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 2. Tipos de Fuerzas y Conceptos -->
+            <div id="fuerzas" class="tab-content">
+                 <section class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4">Identificando Fuerzas y Conceptos Clave</h2>
+                    <p class="mb-6">En los problemas de física, varias fuerzas aparecen con frecuencia. Saber identificarlas es clave para aplicar las leyes de Newton.</p>
+                     <div class="space-y-6">
+                        <!-- Fuerza Normal -->
+                        <div class="info-box p-4 rounded-r-lg">
+                            <h3 class="font-bold text-lg mb-2">Fuerza Normal (N)</h3>
+                            <p>Es la fuerza de contacto ejercida por una superficie sobre un objeto. Actúa siempre de forma <strong>perpendicular</strong> a la superficie. En un objeto sobre una mesa horizontal, la fuerza normal es igual al peso, pero en un plano inclinado, no lo es.</p>
+                        </div>
+                        <!-- Tensión -->
+                        <div class="info-box p-4 rounded-r-lg">
+                            <h3 class="font-bold text-lg mb-2">Tensión (T)</h3>
+                            <p>Es la fuerza que se transmite a través de una cuerda, cable o cadena. La fuerza de tensión "tira" del objeto en la dirección de la cuerda.</p>
+                        </div>
+                        <!-- Velocidad Terminal -->
+                        <div class="info-box p-4 rounded-r-lg">
+                             <h3 class="font-bold text-lg mb-2">Velocidad Terminal</h3>
+                             <p>No es una fuerza, sino un estado de movimiento. Ocurre cuando un objeto en caída libre se mueve a través de un fluido (como el aire). La fuerza de resistencia del aire aumenta con la velocidad. La velocidad terminal se alcanza cuando la fuerza de resistencia del aire se iguala en magnitud a la fuerza de gravedad (peso). En este punto, la fuerza neta es cero, la aceleración es cero, y el objeto cae con una <strong>velocidad constante</strong>.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
