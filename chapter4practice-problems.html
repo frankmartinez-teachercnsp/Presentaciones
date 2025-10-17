@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Práctica: Fuerzas en Una Dimensión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #991B1B; /* red-800 */
+            --light-red-bg: #FEF2F2; /* red-50 */
+            --accent-red: #F87171; /* red-400 */
+            --light-bg: #F9FAFB; /* gray-50 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+        }
+        .problem-box {
+            background-color: white;
+            border-left: 4px solid var(--primary-red);
+        }
+        .solution {
+            display: none;
+            background-color: var(--light-red-bg);
+            border: 1px solid #FECACA; /* red-200 */
+        }
+        h1, h2 {
+            color: var(--primary-red);
+        }
+        .formula {
+            font-family: monospace;
+            background-color: #FEE2E2; /* red-100 */
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--primary-red);
+        }
+    </style>
+    <script>
+        function toggleSolution(id) {
+            const solutionElement = document.getElementById(id);
+            if (solutionElement) {
+                const button = solutionElement.previousElementSibling;
+                if (solutionElement.style.display === 'block') {
+                    solutionElement.style.display = 'none';
+                    button.textContent = 'Mostrar Solución';
+                } else {
+                    solutionElement.style.display = 'block';
+                    button.textContent = 'Ocultar Solución';
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold">Práctica de Fuerzas en Una Dimensión</h1>
+            <p class="mt-2 text-lg text-gray-600">Aplica las Leyes de Newton para resolver los siguientes problemas.</p>
+        </header>
+
+        <main class="space-y-8">
+
+            <!-- Ejercicio 1: F=ma Básico -->
+            <div class="problem-box p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4">Problema 1: Fuerza y Aceleración</h2>
+                <p class="mb-4">Un bloque de 10 kg, inicialmente en reposo sobre una superficie sin fricción, es empujado horizontalmente con una fuerza constante de 50 N. ¿Cuál es la aceleración del bloque?</p>
+                <button onclick="toggleSolution('sol-1')" class="bg-red-700 text-white font-bold py-2 px-4 rounded hover:bg-red-800 transition-colors">Mostrar Solución</button>
+                <div id="sol-1" class="solution mt-4 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Solución:</h3>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li><strong>Identificar la fórmula:</strong> Usamos la Segunda Ley de Newton, <span class="formula">F_neta = m * a</span>.</li>
+                        <li><strong>Identificar los datos:</strong> La fuerza neta <span class="formula">F_neta</span> es 50 N (ya que no hay fricción) y la masa <span class="formula">m</span> es 10 kg.</li>
+                        <li><strong>Despejar la incógnita (aceleración, a):</strong> <span class="formula">a = F_neta / m</span>.</li>
+                        <li><strong>Calcular:</strong> <span class="formula">a = 50 N / 10 kg = 5 m/s²</span>.</li>
+                        <li><strong>Respuesta:</strong> La aceleración del bloque es de <strong>5 m/s²</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2: Peso y Fuerza Normal -->
+            <div class="problem-box p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4">Problema 2: Equilibrio y Fuerza Normal</h2>
+                <p class="mb-4">Una caja de 25 kg descansa sobre un piso horizontal. (a) ¿Cuál es el peso de la caja? (b) ¿Qué fuerza normal ejerce el piso sobre la caja? (Usa g = 9.8 m/s²).</p>
+                <button onclick="toggleSolution('sol-2')" class="bg-red-700 text-white font-bold py-2 px-4 rounded hover:bg-red-800 transition-colors">Mostrar Solución</button>
+                <div id="sol-2" class="solution mt-4 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Solución:</h3>
+                    <p class="mb-2"><strong>Parte (a): Peso</strong></p>
+                    <ol class="list-decimal list-inside space-y-2 mb-4">
+                        <li><strong>Fórmula del peso:</strong> <span class="formula">Peso (W) = m * g</span>.</li>
+                        <li><strong>Calcular:</strong> <span class="formula">W = 25 kg * 9.8 m/s² = 245 N</span>.</li>
+                    </ol>
+                    <p class="mb-2"><strong>Parte (b): Fuerza Normal</strong></p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li><strong>Condición de Equilibrio:</strong> Como la caja está en reposo, la fuerza neta vertical es cero (<span class="formula">F_neta_y = 0</span>). Las fuerzas verticales son la Fuerza Normal (<span class="formula">N</span>) hacia arriba y el Peso (<span class="formula">W</span>) hacia abajo.</li>
+                        <li><strong>Ecuación de fuerzas:</strong> <span class="formula">N - W = 0</span>, lo que implica <span class="formula">N = W</span>.</li>
+                        <li><strong>Respuesta:</strong> La fuerza normal es igual al peso, por lo tanto, <span class="formula">N = 245 N</span>. Esto es un ejemplo de la Tercera Ley de Newton en acción (la caja empuja el piso hacia abajo, y el piso empuja la caja hacia arriba con igual magnitud).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Ejercicio 3: Tensión -->
+            <div class="problem-box p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4">Problema 3: Tensión en una Cuerda</h2>
+                <p class="mb-4">Una lámpara de 8 kg cuelga del techo mediante una cuerda vertical. ¿Cuál es la tensión (<span class="formula">T</span>) en la cuerda?</p>
+                <button onclick="toggleSolution('sol-3')" class="bg-red-700 text-white font-bold py-2 px-4 rounded hover:bg-red-800 transition-colors">Mostrar Solución</button>
+                <div id="sol-3" class="solution mt-4 p-4 rounded-lg">
+                     <h3 class="font-bold text-lg mb-2">Solución:</h3>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li><strong>Condición de Equilibrio:</strong> La lámpara está estática, por lo que la fuerza neta es cero (<span class="formula">F_neta = 0</span>).</li>
+                        <li><strong>Identificar fuerzas:</strong> Actúan la tensión (<span class="formula">T</span>) hacia arriba y el peso (<span class="formula">W = m*g</span>) hacia abajo.</li>
+                        <li><strong>Ecuación de fuerzas:</strong> <span class="formula">T - W = 0</span>, lo que significa <span class="formula">T = W</span>.</li>
+                        <li><strong>Calcular el peso:</strong> <span class="formula">W = 8 kg * 9.8 m/s² = 78.4 N</span>.</li>
+                        <li><strong>Respuesta:</strong> La tensión en la cuerda es igual al peso, <strong>78.4 N</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Ejercicio 4: Velocidad Constante -->
+            <div class="problem-box p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4">Problema 4: Velocidad Constante y Fricción</h2>
+                <p class="mb-4">Un cajón de 40 kg es empujado a través de un piso a una <strong>velocidad constante</strong> por una fuerza de 120 N. ¿Cuál es la magnitud de la fuerza de fricción (<span class="formula">f</span>) que se opone al movimiento?</p>
+                <button onclick="toggleSolution('sol-4')" class="bg-red-700 text-white font-bold py-2 px-4 rounded hover:bg-red-800 transition-colors">Mostrar Solución</button>
+                <div id="sol-4" class="solution mt-4 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Solución:</h3>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li><strong>Concepto clave:</strong> "Velocidad constante" significa que la aceleración es cero (<span class="formula">a = 0</span>).</li>
+                        <li><strong>Segunda Ley de Newton:</strong> Si <span class="formula">a = 0</span>, entonces la fuerza neta también es cero (<span class="formula">F_neta = m * 0 = 0</span>).</li>
+                        <li><strong>Identificar fuerzas horizontales:</strong> La fuerza de empuje (<span class="formula">F_empuje = 120 N</span>) y la fuerza de fricción (<span class="formula">f</span>) en dirección opuesta.</li>
+                        <li><strong>Ecuación de fuerzas:</strong> <span class="formula">F_empuje - f = 0</span>.</li>
+                        <li><strong>Resolver:</strong> <span class="formula">f = F_empuje</span>.</li>
+                        <li><strong>Respuesta:</strong> La fuerza de fricción es de <strong>120 N</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Ejercicio 5: Fuerza Neta -->
+            <div class="problem-box p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4">Problema 5: Fuerza Neta con Fricción</h2>
+                <p class="mb-4">Imagina el mismo cajón de 40 kg del problema anterior. Ahora, se empuja con una fuerza de 200 N. Si la fuerza de fricción sigue siendo de 120 N, ¿cuál es la nueva aceleración del cajón?</p>
+                <button onclick="toggleSolution('sol-5')" class="bg-red-700 text-white font-bold py-2 px-4 rounded hover:bg-red-800 transition-colors">Mostrar Solución</button>
+                <div id="sol-5" class="solution mt-4 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg mb-2">Solución:</h3>
+                     <ol class="list-decimal list-inside space-y-2">
+                        <li><strong>Calcular la Fuerza Neta:</strong> La fuerza neta es la suma de todas las fuerzas. <span class="formula">F_neta = F_empuje - f</span>.</li>
+                        <li><strong>Sustituir valores:</strong> <span class="formula">F_neta = 200 N - 120 N = 80 N</span>.</li>
+                        <li><strong>Usar la Segunda Ley de Newton:</strong> <span class="formula">F_neta = m * a</span>.</li>
+                        <li><strong>Despejar la aceleración:</strong> <span class="formula">a = F_neta / m</span>.</li>
+                        <li><strong>Calcular:</strong> <span class="formula">a = 80 N / 40 kg = 2 m/s²</span>.</li>
+                        <li><strong>Respuesta:</strong> La nueva aceleración del cajón es de <strong>2 m/s²</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
