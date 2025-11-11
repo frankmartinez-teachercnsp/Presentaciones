@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competencias Esenciales de Ciencias</title>
+    <!-- Inclusión de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilo para un degradado sutil en el fondo */
+        body {
+            background-color: #f4f7f6;
+            background-image: linear-gradient(180deg, #f4f7f6 0%, #d8e2e7 100%);
+        }
+        /* Pequeña animación para las tarjetas */
+        .practice-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .practice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- Encabezado -->
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-3xl md:text-5xl font-bold text-indigo-800 mb-4">
+                Competencias Esenciales de Ciencias e Ingeniería
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                Estas 8 prácticas son la base del "saber hacer" y permiten aplicar el método científico en todos los niveles educativos.
+            </p>
+        </header>
+
+        <!-- Rejilla de Prácticas (Infografía) -->
+        <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+
+            <!-- 1. Formular Preguntas -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Signo de interrogación -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.79 4 4 0 1.105-.448 2.105-1.172 2.828a.2.2 0 01-.286.052l-.734-.411a.2.2 0 00-.286.052A3.976 3.976 0 0112 16a.997.997 0 01-.707-.293l-1.071-1.071a.997.997 0 00-1.414 0l-.707.707A.997.997 0 018 16.06V16a.997.997 0 01-.707-.293l-1.071-1.071a.997.997 0 00-1.414 0l-.707.707A.997.997 0 014 16.06V16a.997.997 0 01-.707-.293l-1.071-1.071a.997.997 0 00-1.414 0l-.707.707A.997.997 0 010 16.06V16a3.976 3.976 0 011.172-2.828C.448 12.105 0 11.105 0 10c0-2.21 1.79-4 4-4 1.742 0 3.223.835 3.772 2zM12 18a.997.997 0 01.707.293l1.071 1.071a.997.997 0 001.414 0l.707-.707a.997.997 0 011.414 0l1.071 1.071a.997.997 0 001.414 0l.707-.707a.997.997 0 011.414 0l1.071 1.071a.997.997 0 001.414 0l.707-.707a.997.997 0 011.414 0l1.071 1.071a.997.997 0 001.414 0l.707-.707a.997.997 0 011.414 0l.707.707a.997.997 0 001.414 0l1.071-1.071a.997.997 0 011.414 0l.707.707a.997.997 0 001.414 0l1.071-1.071a.997.997 0 011.414 0l.707.707a.997.997 0 001.414 0l1.071-1.071a.997.997 0 011.414 0l.707.707a.997.997 0 001.414 0l.707-.707a.997.997 0 011.414 0l.707.707a.997.997 0 001.414 0l.707-.707z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Formular Preguntas y Definir Problemas</h3>
+                <p class="text-gray-600 text-sm">Observar, cuestionar el porqué de las cosas e identificar problemas a resolver.</p>
+            </div>
+
+            <!-- 2. Desarrollar Modelos -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Cubo (Modelo) -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Desarrollar y Utilizar Modelos</h3>
+                <p class="text-gray-600 text-sm">Crear representaciones (diagramas, maquetas) para entender fenómenos complejos.</p>
+            </div>
+
+            <!-- 3. Planificar Investigaciones -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Lupa (Investigación) -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Planificar y Llevar a Cabo Investigaciones</h3>
+                <p class="text-gray-600 text-sm">Diseñar experimentos controlados y sistemáticos para probar una hipótesis.</p>
+            </div>
+
+            <!-- 4. Analizar Datos -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Gráfica de Barras -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Analizar e Interpretar Datos</h3>
+                <p class="text-gray-600 text-sm">Entender qué significan los datos recolectados y encontrar patrones relevantes.</p>
+            </div>
+
+            <!-- 5. Pensamiento Matemático -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Calculadora -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m-3 10v-6m-3 6h6m-6 0H6m6 0h3M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Uso del Pensamiento Matemático y Computacional</h3>
+                <p class="text-gray-600 text-sm">Aplicar la lógica, las matemáticas y la computación para apoyar el análisis.</p>
+            </div>
+
+            <!-- 6. Construir Explicaciones -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Bombilla (Idea) -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m12.728 0l-.707.707M12 21v-1m-4.657-3.343l.707-.707m9.314 0l.707.707M12 7a5 5 0 00-5 5h10a5 5 0 00-5-5z"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Construir Explicaciones y Diseñar Soluciones</h3>
+                <p class="text-gray-600 text-sm">Usar la evidencia para explicar un fenómeno o proponer una solución a un problema.</p>
+            </div>
+            
+            <!-- 7. Argumentar con Evidencia -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Balanza (Argumento) -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16v2m-6-16v2m0 16v2"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Participar de un Argumento a Base de Evidencias</h3>
+                <p class="text-gray-600 text-sm">Debatir y defender conclusiones científicas utilizando datos, no solo opiniones.</p>
+            </div>
+
+            <!-- 8. Comunicar Información -->
+            <div class="practice-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                <div class="bg-indigo-100 rounded-full p-4 mb-4">
+                    <!-- Icono: Megáfono (Comunicar) -->
+                    <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1M11 6H7a4 4 0 00-4 4v.683M18 13v-2.172a4 4 0 00-1.24-2.894L12.44 4.596A4 4 0 007 6h1m0 0v1.118M11 6h.01M16 19h6"></path></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Obtener, Evaluar y Comunicar Información</h3>
+                <p class="text-gray-600 text-sm">Investigar en fuentes confiables, criticar la información y presentar hallazgos.</p>
+            </div>
+
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="text-center text-gray-500 text-sm mt-12 md:mt-16">
+            <p>Basado en el documento "Programa de Ciencias_Competencias esenciales 2022.pdf"</p>
+            <p>Departamento de Educación de Puerto Rico</p>
+        </footer>
+
+    </div>
+</body>
+</html>

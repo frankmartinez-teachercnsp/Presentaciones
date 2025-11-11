@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contexto: Ingeniería y Tecnología</title>
+    <!-- Inclusión de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilo para un degradado sutil en el fondo (consistente) */
+        body {
+            background-color: #f4f7f6;
+            background-image: linear-gradient(180deg, #f4f7f6 0%, #d8e2e7 100%);
+            min-height: 100vh;
+        }
+        /* Animación para las tarjetas (consistente) */
+        .concept-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .concept-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- Encabezado -->
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-3xl md:text-5xl font-bold text-teal-800 mb-4">
+                Contexto: Ingeniería y Tecnología
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                La relación entre Ciencia, Ingeniería y Tecnología según el marco educativo.
+            </p>
+        </header>
+
+        <!-- Sección 1: Definiciones Clave -->
+        <section class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-8">Definiciones Clave</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Card: Ciencia -->
+                <div class="concept-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                    <div class="bg-teal-100 rounded-full p-4 mb-4">
+                        <!-- Icono: Lupa (Ciencia) -->
+                        <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-2">¿Qué es la Ciencia?</h3>
+                    <p class="text-gray-600 text-sm">
+                        Es el proceso de formular preguntas y construir explicaciones sobre el mundo natural. Su objetivo principal es generar <strong class="font-medium">conocimiento</strong>.
+                    </p>
+                </div>
+
+                <!-- Card: Ingeniería -->
+                <div class="concept-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                    <div class="bg-teal-100 rounded-full p-4 mb-4">
+                        <!-- Icono: Engranaje (Ingeniería) -->
+                        <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.573-1.066zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-2">¿Qué es la Ingeniería?</h3>
+                    <p class="text-gray-600 text-sm">
+                        Es el proceso de definir problemas y diseñar soluciones para satisfacer las necesidades y deseos humanos. Su objetivo principal es una <strong class="font-medium">solución</strong>.
+                    </p>
+                </div>
+
+                <!-- Card: Tecnología -->
+                <div class="concept-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                    <div class="bg-teal-100 rounded-full p-4 mb-4">
+                        <!-- Icono: Chip (Tecnología) -->
+                        <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1h-5M9 3v.01M15 3v.01M9 3h6m-6 18h6m-6-6h.01M9 15h.01M12 9h.01M15 9h.01M15 15h.01M12 15h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-2">¿Qué es la Tecnología?</h3>
+                    <p class="text-gray-600 text-sm">
+                        Es la <strong class="font-medium">aplicación</strong> del conocimiento (científico y de ingeniería) para crear herramientas, sistemas y procesos. Es el <strong class="font-medium">resultado</strong> de la ingeniería.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 2: La Interconexión -->
+        <section class="mb-12 md:mb-16 bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">Una Relación Simbiótica</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                La ciencia, la ingeniería y la tecnología están profundamente interconectadas. Cada una impulsa a las otras en un ciclo continuo de innovación.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="text-center">
+                    <span class="text-lg font-semibold text-teal-700 p-3 bg-teal-100 rounded-lg">CIENCIA</span>
+                    <p class="text-sm text-gray-500 mt-2">Descubre</p>
+                </div>
+                <svg class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <div class="text-center">
+                    <span class="text-lg font-semibold text-teal-700 p-3 bg-teal-100 rounded-lg">INGENIERÍA</span>
+                    <p class="text-sm text-gray-500 mt-2">Diseña</p>
+                </div>
+                <svg class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <div class="text-center">
+                    <span class="text-lg font-semibold text-teal-700 p-3 bg-teal-100 rounded-lg">TECNOLOGÍA</span>
+                    <p class="text-sm text-gray-500 mt-2">Crea</p>
+                </div>
+                <svg class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <div class="text-center">
+                     <span class="text-lg font-semibold text-teal-700 p-3 bg-teal-100 rounded-lg">CIENCIA</span>
+                    <p class="text-sm text-gray-500 mt-2">(Nuevas herramientas)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Proceso de Diseño de Ingeniería -->
+        <section>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-4">El Proceso de Diseño de Ingeniería</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                Este es el "método" central que usa la ingeniería para resolver problemas de forma estructurada e iterativa.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Paso 1: Definir -->
+                <div class="concept-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                    <div class="bg-teal-100 rounded-full p-4 mb-4">
+                        <!-- Icono: Portapapeles (Definir) -->
+                        <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-2">1. Definir el Problema</h3>
+                    <p class="text-gray-600 text-sm">
+                        Identificar claramente la necesidad, los criterios de éxito y las limitaciones (costo, tiempo, materiales).
+                    </f>
+                </div>
+
+                <!-- Paso 2: Desarrollar -->
+                <div class="concept-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                    <div class="bg-teal-100 rounded-full p-4 mb-4">
+                        <!-- Icono: Bombilla (Idea) -->
+                        <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m12.728 0l-.707.707M12 21v-1m-4.657-3.343l.707-.707m9.314 0l.707.707M12 7a5 5 0 00-5 5h10a5 5 0 00-5-5z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-2">2. Desarrollar Soluciones</h3>
+                    <p class="text-gray-600 text-sm">
+                        Generar múltiples ideas (lluvia de ideas), investigar, seleccionar la más prometedora y construir un prototipo.
+                    </p>
+                </div>
+
+                <!-- Paso 3: Optimizar -->
+                <div class="concept-card bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center">
+                    <div class="bg-teal-100 rounded-full p-4 mb-4">
+                        <!-- Icono: Check (Optimizar) -->
+                        <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-800 mb-2">3. Probar y Optimizar</h3>
+                    <p class="text-gray-600 text-sm">
+                        Poner a prueba el prototipo, recolectar datos, analizar qué tan bien cumple los criterios y refinar el diseño (iterar).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pie de página -->
+        <footer class="text-center text-gray-500 text-sm mt-12 md:mt-16">
+            <p>Basado en el documento "Programa de Ciencias_Competencias esenciales 2022.pdf"</p>
+            <p>Departamento de Educación de Puerto Rico</p>
+        </footer>
+
+    </div>
+</body>
+</html>
