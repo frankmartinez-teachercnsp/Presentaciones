@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física: Movimiento 2D y Dinámica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f3f4f6; }
+        .slide { display: none; animation: slideIn 0.5s ease-out; }
+        .active-slide { display: block; }
+        .answer-box { display: none; animation: fadeIn 0.5s ease-in; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 text-gray-800">
+
+    <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+        
+        <!-- Header -->
+        <div class="bg-indigo-700 p-6 text-white flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold">Física II: Vectores y Dinámica</h1>
+                <p class="text-indigo-200 text-sm mt-1">Nivel Grado 12 (Precálculo)</p>
+            </div>
+            <div class="hidden md:block text-right text-xs text-indigo-200">
+                <p>Temas: Vectores, Proyectiles,</p>
+                <p>Planos Inclinados, Fricción</p>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="p-6 md:p-10 min-h-[500px] flex flex-col justify-between relative">
+            
+            <div id="slides-container">
+
+                <!-- Slide 1: Componentes de un Vector -->
+                <div class="slide active-slide">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Vectores</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-2 mb-4">1. Descomposición de Vectores</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Un cañón dispara un proyectil con una velocidad inicial de <strong>50 m/s</strong> a un ángulo de <strong>60°</strong> sobre la horizontal.
+                        <br><br>
+			Calcula los componentes horizontal (V<sub>x</sub>) y vertical (V<sub>y</sub>) de la velocidad inicial.
+                    </p>
+                    <button onclick="toggleAnswer(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                        Ver Solución
+                    </button>
+                    <div class="answer-box mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-indigo-700 mb-2">Procedimiento:</h3>
+                        <p>Usamos las funciones trigonométricas:</p>
+                        <ul class="list-disc ml-5 space-y-2 mt-2">
+                            <li>$$v_x = v \cdot \cos(\theta)$$</li>
+                            <li>$$v_y = v \cdot \sin(\theta)$$</li>
+                        </ul>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <p>$$v_x = 50 \cdot \cos(60^\circ) = 50 \cdot 0.5 = \mathbf{25 \text{ m/s}}$$</p>
+                            <p>$$v_y = 50 \cdot \sin(60^\circ) = 50 \cdot 0.866 = \mathbf{43.3 \text{ m/s}}$$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Pitágoras y Tangente Inversa -->
+                <div class="slide">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Vector Resultante</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-2 mb-4">2. Encontrando el Vector Resultante</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+		    Un barco navega con una velocidad horizontal (V<sub>x</sub>) de <strong>30 km/h</strong> y una velocidad vertical (V<sub>y</sub>) debido a la corriente de <strong>40 km/h</strong>.
+                        <br><br>
+                        Utiliza el Teorema de Pitágoras para hallar la magnitud de la velocidad resultante y la tangente inversa para encontrar el ángulo de dirección.
+                    </p>
+                    <button onclick="toggleAnswer(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                        Ver Solución
+                    </button>
+                    <div class="answer-box mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+                        <p class="mb-2"><strong>Magnitud (Pitágoras):</strong></p>
+                        <p>$$R = \sqrt{v_x^2 + v_y^2}$$</p>
+                        <p>$$R = \sqrt{30^2 + 40^2} = \sqrt{900 + 1600} = \sqrt{2500} = \mathbf{50 \text{ km/h}}$$</p>
+                        
+                        <p class="mt-4 mb-2"><strong>Dirección (Tangente Inversa):</strong></p>
+                        <p>$$\theta = \tan^{-1}\left(\frac{v_y}{v_x}\right)$$</p>
+                        <p>$$\theta = \tan^{-1}\left(\frac{40}{30}\right) = \tan^{-1}(1.33) \approx \mathbf{53.1^\circ}$$</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Ley de Coseno -->
+                <div class="slide">
+                    <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Vectores No Perpendiculares</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-2 mb-4">3. Suma de Vectores (Ley de Coseno)</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Dos remolcadores tiran de un barco. La fuerza A es de <strong>1000 N</strong> y la fuerza B es de <strong>1500 N</strong>. El ángulo entre las dos cuerdas es de <strong>60°</strong>.
+                        <br><br>
+                        Calcula la magnitud de la fuerza resultante usando la Ley de Coseno: $$R = \sqrt{A^2 + B^2 + 2AB\cos(\theta)}$$
+                    </p>
+                    <button onclick="toggleAnswer(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                        Ver Solución
+                    </button>
+                    <div class="answer-box mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+                        <p>Aplicamos la fórmula:</p>
+                        <p class="text-sm italic text-gray-500 mb-2">(Nota: Si usamos el método del paralelogramo con vectores cola con cola, usamos +2ABcosθ)</p>
+                        <p>$$R = \sqrt{1000^2 + 1500^2 + 2(1000)(1500)\cos(60^\circ)}$$</p>
+                        <p>$$R = \sqrt{1,000,000 + 2,250,000 + 3,000,000(0.5)}$$</p>
+                        <p>$$R = \sqrt{3,250,000 + 1,500,000} = \sqrt{4,750,000}$$</p>
+                        <p class="mt-2 font-bold text-xl text-indigo-800">$$R \approx 2179.4 \text{ N}$$</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Proyectiles (Altura Máxima) -->
+                <div class="slide">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Proyectiles</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-2 mb-4">4. Proyectiles: Altura Máxima</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+		    Se patea un balón con una velocidad vertical inicial (V<sub>iy</sub>) de <strong>19.6 m/s</strong>.
+                        <br><br>
+			¿Cuánto tiempo tarda en llegar a su altura máxima y cuál es esa altura? (Usa g = 9.8 m/s<sup>2</sup>).
+                        <br>
+                        <small class="text-gray-500">Recuerda: En la altura máxima, la velocidad vertical es 0.</small>
+                    </p>
+                    <button onclick="toggleAnswer(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                        Ver Solución
+                    </button>
+                    <div class="answer-box mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+                        <p><strong>1. Tiempo para subir (t):</strong></p>
+                        <p>$$v_f = v_i - gt \Rightarrow 0 = 19.6 - 9.8t$$</p>
+                        <p>$$t = \frac{19.6}{9.8} = \mathbf{2 \text{ s}}$$</p>
+                        
+                        <p class="mt-4"><strong>2. Altura Máxima (y):</strong></p>
+                        <p>$$y = v_i t - \frac{1}{2}gt^2$$</p>
+                        <p>$$y = (19.6)(2) - 0.5(9.8)(2^2)$$</p>
+                        <p>$$y = 39.2 - 19.6 = \mathbf{19.6 \text{ m}}$$</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Plano Inclinado (Componentes del Peso) -->
+                <div class="slide">
+                    <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">Fuerzas en Rampas</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-2 mb-4">5. Fuerzas en un Plano Inclinado</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Una caja de masa m = 10 kg descansa sobre una rampa inclinada <strong>30°</strong>. El peso de la caja es w = m*g = 98N.
+                        <br><br>
+                        Descompón el peso en sus componentes:
+			<br>1. Perpendicular al plano (W<sub>y</sub>)
+			<br>2. Paralelo al plano (W<sub>x</sub>)
+                    </p>
+                    [Image of inclined plane free body diagram]
+                    <button onclick="toggleAnswer(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                        Ver Solución
+                    </button>
+                    <div class="answer-box mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+                        <p class="mb-2 text-sm text-gray-500">Nota: En planos inclinados, el ángulo del plano es igual al ángulo entre el peso y la perpendicular.</p>
+			<p><strong>1. Componente Perpendicular (w<sub>y</sub>= F<sub>N</sub>):</strong></p>
+                        <p>$$w_y = w \cdot \cos(30^\circ) = 98 \cdot 0.866 = \mathbf{84.87 \text{ N}}$$</p>
+                        
+			<p class="mt-4"><strong>2. Componente Paralelo (w<sub>x</sub>):</strong></p>
+                        <p>$$w_x = w \cdot \sin(30^\circ) = 98 \cdot 0.5 = \mathbf{49 \text{ N}}$$</p>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Fricción y Normal -->
+                <div class="slide">
+                    <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">Dinámica y Fricción</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-2 mb-4">6. Fricción en el Plano</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Usando los datos del ejercicio anterior (Caja de 10 kg en rampa de 30°):
+                        <br>
+			La Fuerza Normal (F<sub>N</sub>) es igual a la componente perpendicular del peso (84.87N).
+                        <br><br>
+			Si el coeficiente de fricción cinética (μ<sub>k</sub>) es <strong>0.3</strong>, calcula la fuerza de fricción cinética (F<sub>f</sub>) que se opone al movimiento.
+                    </p>
+                    <button onclick="toggleAnswer(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                        Ver Solución
+                    </button>
+                    <div class="answer-box mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+                        <p>La fórmula de la fricción es:</p>
+                        <p class="text-xl my-2">$$F_f = \mu_k \cdot F_N$$</p>
+                        <p>Sustituyendo los valores:</p>
+                        <p>$$F_f = 0.3 \cdot 84.87 \text{ N}$$</p>
+                        <p class="mt-2 font-bold text-indigo-800">$$F_f \approx 25.46 \text{ N}$$</p>
+                    </div>
+                </div>
+
+                 <!-- Slide 7: Fuerza Neta y Aceleración -->
+                 <div class="slide">
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">Segunda Ley de Newton</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-2 mb-4">7. Aceleración Total</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Continuando con la caja en la rampa:
+                        <br>
+			- Fuerza que jala hacia abajo (w<sub>x</sub>): <strong>49 N</strong>
+                        <br>
+			- Fuerza de fricción hacia arriba (F<sub>f</sub>): <strong>25.46 N</strong>
+                        <br>
+                        - Masa (m): <strong>10 kg</strong>
+                        <br><br>
+                        Calcula la fuerza neta y la aceleración de la caja deslizando hacia abajo.
+                    </p>
+                    <button onclick="toggleAnswer(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                        Ver Solución
+                    </button>
+                    <div class="answer-box mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
+			    <p><strong>1. Fuerza Neta (F<sub>net</sub>):</strong></p>
+                        <p>$$F_{net} = w_x - f_k$$</p>
+                        <p>$$F_{net} = 49 - 25.46 = \mathbf{23.54 \text{ N}}$$</p>
+                        
+                        <p class="mt-4"><strong>2. Aceleración (a):</strong></p>
+                        <p>$$F_{net} = m \cdot a \Rightarrow a = \frac{F_{net}}{m}$$</p>
+                        <p>$$a = \frac{23.54}{10} = \mathbf{2.35 \text{ m/s}^2}$$</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="flex justify-between items-center mt-8 pt-4 border-t border-gray-200">
+                <button onclick="changeSlide(-1)" id="prevBtn" class="flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Anterior
+                </button>
+                <span id="slide-indicator" class="text-gray-500 font-medium">1 / 7</span>
+                <button onclick="changeSlide(1)" id="nextBtn" class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    Siguiente
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicator = document.getElementById('slide-indicator');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateButtons() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+            indicator.innerText = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active-slide');
+            
+            // Hide previous answer when changing slide
+            const prevAnswer = slides[currentSlide].querySelector('.answer-box');
+            if(prevAnswer) prevAnswer.style.display = 'none';
+            const prevToggleBtn = slides[currentSlide].querySelector('button[onclick="toggleAnswer(this)"]');
+            if(prevToggleBtn) prevToggleBtn.innerText = 'Ver Solución';
+
+            currentSlide += direction;
+            slides[currentSlide].classList.add('active-slide');
+            updateButtons();
+        }
+
+        function toggleAnswer(btn) {
+            const answerBox = btn.nextElementSibling;
+            if (answerBox.style.display === 'block') {
+                answerBox.style.display = 'none';
+                btn.innerText = 'Ver Solución';
+            } else {
+                answerBox.style.display = 'block';
+                btn.innerText = 'Ocultar Solución';
+            }
+        }
+
+        // Initialize
+        updateButtons();
+    </script>
+</body>
+</html>
