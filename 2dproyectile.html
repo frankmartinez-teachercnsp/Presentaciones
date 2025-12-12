@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemática de Proyectiles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0fdf4; } /* Light green bg for physics/nature vibe */
+        .slide { display: none; animation: fadeIn 0.5s ease-out; }
+        .active-slide { display: block; }
+        .answer-panel { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out; 
+            opacity: 0;
+        }
+        .answer-panel.show { 
+            max-height: 1000px; 
+            opacity: 1; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 text-slate-800">
+
+    <div class="w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200">
+        
+        <!-- Header -->
+        <div class="bg-emerald-600 p-6 text-white flex justify-between items-center shadow-md">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Física: Movimiento de Proyectiles</h1>
+                <p class="text-emerald-100 text-sm mt-1">Cinemática en Dos Dimensiones</p>
+            </div>
+            <div class="hidden md:block text-right text-xs text-emerald-100 font-mono bg-emerald-700/50 p-2 rounded">
+                <p>g = 9.8 m/s²</p>
+                <p>ax = 0</p>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="p-6 md:p-10 min-h-[550px] flex flex-col justify-between relative">
+            
+            <div id="slides-container">
+
+                <!-- Slide 0: Fórmulas Clave -->
+                <div class="slide active-slide">
+                    <span class="bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Introducción</span>
+                    <h2 class="text-3xl font-bold text-slate-800 mt-4 mb-6">Ecuaciones de Cinemática 2D</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-blue-50 p-5 rounded-xl border border-blue-100">
+                            <h3 class="text-blue-800 font-bold mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                Eje Horizontal (X)
+                            </h3>
+			    <p class="text-sm text-blue-600 mb-2">Velocidad constante (a<sub>x</sub> = 0)</p>
+                            <ul class="space-y-3 text-slate-700">
+                                <li class="bg-white p-2 rounded shadow-sm">$$v_{0x} = v_0 \cos \theta$$</li>
+                                <li class="bg-white p-2 rounded shadow-sm">$$x = x_0 + v_{0x} t$$</li>
+                                <li class="bg-white p-2 rounded shadow-sm">$$v_x = v_{0x}$$ (siempre igual)</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-orange-50 p-5 rounded-xl border border-orange-100">
+                            <h3 class="text-orange-800 font-bold mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                                Eje Vertical (Y)
+                            </h3>
+			    <p class="text-sm text-orange-600 mb-2">Aceleración constante (a<sub>y</sub> = -g)</p>
+                            <ul class="space-y-3 text-slate-700">
+                                <li class="bg-white p-2 rounded shadow-sm">$$v_{0y} = v_0 \sin \theta$$</li>
+                                <li class="bg-white p-2 rounded shadow-sm">$$v_y = v_{0y} - gt$$</li>
+                                <li class="bg-white p-2 rounded shadow-sm">$$y = y_0 + v_{0y}t - \frac{1}{2}gt^2$$</li>
+                                <li class="bg-white p-2 rounded shadow-sm">$$v_y^2 = v_{0y}^2 - 2g(y - y_0)$$</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 1: Lanzamiento Horizontal -->
+                <div class="slide">
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Caso 1: Lanzamiento Horizontal</span>
+                    <h2 class="text-2xl font-bold text-slate-800 mt-4 mb-2">El Paquete de Ayuda</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+                        Un avión de rescate vuela horizontalmente a una velocidad de <strong>40 m/s</strong> a una altura de <strong>100 metros</strong>. Deja caer un paquete de suministros.
+                        <br><br>
+                        <strong>Paso 1:</strong> ¿Cuánto tiempo tarda el paquete en tocar el suelo?
+			<br><span class="text-sm text-slate-400">(Pista: Usa el eje Y. La velocidad inicial vertical v<sub>iy</sub> es 0).</span>
+                    </p>
+                    
+                    <button onclick="toggleAnswer(this)" class="group bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 font-medium py-2 px-6 rounded-full transition-all flex items-center shadow-sm">
+                        <span>Ver Procedimiento</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="answer-panel mt-4 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                        <div class="prose prose-slate max-w-none">
+                            <p class="font-bold text-emerald-700">Solución:</p>
+                            <p>Usamos la ecuación de posición vertical con $$y=0$$ (suelo) y $$y_i = 100$$:</p>
+                            <p>$$y = y_0 + v_{0y}t - \frac{1}{2}gt^2$$</p>
+                            <p>Como se deja caer horizontalmente, $$v_{iy} = 0$$.</p>
+                            <p>$$0 = 100 + 0 - 0.5(9.8)t^2$$</p>
+                            <p>$$4.9t^2 = 100 \Rightarrow t^2 = \frac{100}{4.9} \approx 20.41$$</p>
+                            <p>$$t = \sqrt{20.41} \approx \mathbf{4.52 \text{ s}}$$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Lanzamiento Horizontal (Alcance) -->
+                <div class="slide">
+                    <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Caso 1: Lanzamiento Horizontal</span>
+                    <h2 class="text-2xl font-bold text-slate-800 mt-4 mb-2">El Paquete de Ayuda (Parte 2)</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+		    Continuando con el problema anterior (t = 4.52 s y v<sub>x</sub> = 40 m/s):
+                        <br><br>
+                        <strong>Paso 2:</strong> ¿Qué distancia horizontal (x) recorre el paquete desde el punto de lanzamiento hasta que choca?
+                    </p>
+                    
+                    <button onclick="toggleAnswer(this)" class="group bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 font-medium py-2 px-6 rounded-full transition-all flex items-center shadow-sm">
+                        <span>Ver Procedimiento</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="answer-panel mt-4 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                        <p class="font-bold text-emerald-700 mb-2">Solución:</p>
+                        <p>En el eje horizontal no hay aceleración, usamos:</p>
+                        <p>$$x = v_x \cdot t$$</p>
+                        <p>$$x = 40 \text{ m/s} \cdot 4.52 \text{ s}$$</p>
+                        <p class="text-xl mt-2 font-bold">$$x \approx 180.8 \text{ metros}$$</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Lanzamiento con Ángulo (Componentes) -->
+                <div class="slide">
+                    <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Caso 2: Lanzamiento con Ángulo</span>
+                    <h2 class="text-2xl font-bold text-slate-800 mt-4 mb-2">El Saque de Meta</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+                        Un portero patea un balón con una velocidad inicial de <strong>25 m/s</strong> a un ángulo de <strong>35°</strong> con el suelo.
+                        <br><br>
+			<strong>Paso 1:</strong> Descompón el vector velocidad inicial en sus componentes v<sub>ix</sub> y v<sub>iy</sub>.
+                    </p>
+                    <button onclick="toggleAnswer(this)" class="group bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 font-medium py-2 px-6 rounded-full transition-all flex items-center shadow-sm">
+                        <span>Ver Procedimiento</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="answer-panel mt-4 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                        <p class="font-bold text-emerald-700 mb-2">Cálculos:</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-semibold text-blue-600">Componente X (Coseno):</p>
+                                <p>$$v_{0x} = 25 \cos(35^\circ)$$</p>
+                                <p>$$v_{0x} = 25 (0.819)$$</p>
+                                <p class="font-bold">$$v_{0x} = 20.48 \text{ m/s}$$</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-orange-600">Componente Y (Seno):</p>
+                                <p>$$v_{0y} = 25 \sin(35^\circ)$$</p>
+                                <p>$$v_{0y} = 25 (0.574)$$</p>
+                                <p class="font-bold">$$v_{0y} = 14.34 \text{ m/s}$$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Altura Máxima -->
+                <div class="slide">
+                    <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Caso 2: Lanzamiento con Ángulo</span>
+                    <h2 class="text-2xl font-bold text-slate-800 mt-4 mb-2">El Saque de Meta (Altura)</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+		    Con v<sub>iy</sub> = 14.34 m/s:
+                        <br><br>
+                        <strong>Paso 2:</strong> Calcula la altura máxima que alcanza el balón.
+			<br><span class="text-sm text-slate-400">Recuerda: En la altura máxima, la velocidad vertical v<sub>y</sub> es 0.</span>
+                    </p>
+                    
+                    <button onclick="toggleAnswer(this)" class="group bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 font-medium py-2 px-6 rounded-full transition-all flex items-center shadow-sm">
+                        <span>Ver Procedimiento</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="answer-panel mt-4 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                        <p class="font-bold text-emerald-700 mb-2">Usamos la ecuación independiente del tiempo:</p>
+                        <p>$$v_y^2 = v_{0y}^2 - 2g \Delta y$$</p>
+                        <p>$$0 = (14.34)^2 - 2(9.8)H_{max}$$</p>
+                        <p>$$0 = 205.63 - 19.6 H_{max}$$</p>
+                        <p>$$H_{max} = \frac{205.63}{19.6}$$</p>
+                        <p class="text-xl font-bold mt-2">$$H_{max} \approx 10.49 \text{ metros}$$</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Tiempo de Vuelo -->
+                <div class="slide">
+                    <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Caso 2: Lanzamiento con Ángulo</span>
+                    <h2 class="text-2xl font-bold text-slate-800 mt-4 mb-2">El Saque de Meta (Tiempo Total)</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+		    Con v<sub>iy</sub> = 14.32 m/s:
+                        <br><br>
+                        <strong>Paso 3:</strong> Calcula el tiempo total que el balón permanece en el aire hasta volver a tocar el suelo (y=0).
+                    </p>
+                    
+                    <button onclick="toggleAnswer(this)" class="group bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 font-medium py-2 px-6 rounded-full transition-all flex items-center shadow-sm">
+                        <span>Ver Procedimiento</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="answer-panel mt-4 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                        <p class="font-bold text-emerald-700 mb-2">Solución:</p>
+                        <p>Si sale del suelo y cae al suelo, el tiempo de subida es igual al de bajada. Podemos encontrar el tiempo para llegar al pico ($v_y = 0$) y duplicarlo.</p>
+                        <p>$$v_y = v_{0y} - gt$$</p>
+                        <p>$$0 = 14.34 - 9.8t_{subida}$$</p>
+                        <p>$$t_{subida} = \frac{14.34}{9.8} \approx 1.46 \text{ s}$$</p>
+                        <p class="font-bold mt-2">$$t_{total} = 1.46 \times 2 = 2.92 \text{ s}$$</p>
+                        <p class="text-sm text-slate-500 mt-2">Alternativamente, usar $y = v_{0y}t - 0.5gt^2$ con $y=0$.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Alcance Horizontal -->
+		<div class="slide">
+                    <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Caso 2: Lanzamiento con Ángulo</span>
+                    <h2 class="text-2xl font-bold text-slate-800 mt-4 mb-2">El Saque de Meta (Alcance)</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+                        Tenemos $t_{total} = 2.92 \text{ s}$ y $v_{0x} = 20.48 \text{ m/s}$.
+                        <br><br>
+                        <strong>Paso Final:</strong> ¿Qué tan lejos llega el balón horizontalmente (Rango)?
+                    </p>
+                    
+                    <button onclick="toggleAnswer(this)" class="group bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 font-medium py-2 px-6 rounded-full transition-all flex items-center shadow-sm">
+                        <span>Ver Procedimiento</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="answer-panel mt-4 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                        <p class="font-bold text-emerald-700 mb-2">Solución:</p>
+                        <p>Usamos la ecuación del eje X (velocidad constante):</p>
+                        <p>$$x = v_{0x} \cdot t_{total}$$</p>
+                        <p>$$x = 20.48 \text{ m/s} \cdot 2.92 \text{ s}$$</p>
+                        <p class="text-xl font-bold mt-2">$$x \approx 59.8 \text{ metros}$$</p>
+                    </div>
+                </div>
+
+                 <!-- Slide 7: Vector Final -->
+                 <div class="slide">
+                    <span class="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Desafío Final</span>
+                    <h2 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Impacto</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+                        Un proyectil impacta el suelo con:
+                        <br>
+                        - $v_x = 30 \text{ m/s}$
+                        <br>
+                        - $v_y = -40 \text{ m/s}$ (hacia abajo)
+                        <br><br>
+                        Calcula la magnitud de la velocidad final y el ángulo de impacto con el suelo.
+                    </p>
+                    
+                    <button onclick="toggleAnswer(this)" class="group bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 font-medium py-2 px-6 rounded-full transition-all flex items-center shadow-sm">
+                        <span>Ver Procedimiento</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="answer-panel mt-4 bg-slate-50 rounded-xl border border-slate-200 p-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-bold text-indigo-700">Magnitud (Pitágoras):</p>
+                                <p>$$v = \sqrt{v_x^2 + v_y^2}$$</p>
+                                <p>$$v = \sqrt{30^2 + (-40)^2} = \sqrt{900 + 1600}$$</p>
+                                <p>$$v = \sqrt{2500} = \mathbf{50 \text{ m/s}}$$</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-indigo-700">Ángulo (Tangente Inversa):</p>
+                                <p>$$\theta = \tan^{-1}(|v_y| / v_x)$$</p>
+                                <p>$$\theta = \tan^{-1}(40/30) = \tan^{-1}(1.33)$$</p>
+                                <p>$$\theta \approx \mathbf{53.1^\circ} \text{ bajo la horizontal}$$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="flex justify-between items-center mt-10 pt-6 border-t border-slate-200">
+                <button onclick="changeSlide(-1)" id="prevBtn" class="flex items-center px-5 py-2.5 bg-slate-100 text-slate-600 font-medium rounded-lg hover:bg-slate-200 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Anterior
+                </button>
+                
+                <div class="flex space-x-2">
+                    <!-- Dots indicator generated by JS -->
+                    <div id="dots-container" class="flex space-x-1"></div>
+                </div>
+
+                <button onclick="changeSlide(1)" id="nextBtn" class="flex items-center px-5 py-2.5 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 shadow-md shadow-emerald-200 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    Siguiente
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('dots-container');
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('w-2', 'h-2', 'rounded-full', 'transition-all', 'duration-300');
+            if (index === 0) {
+                dot.classList.add('bg-emerald-600', 'w-4');
+            } else {
+                dot.classList.add('bg-slate-300');
+            }
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('div');
+
+        function updateUI() {
+            // Buttons
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+
+            // Dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-slate-300', 'w-2');
+                    dot.classList.add('bg-emerald-600', 'w-4');
+                } else {
+                    dot.classList.remove('bg-emerald-600', 'w-4');
+                    dot.classList.add('bg-slate-300', 'w-2');
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            // Hide current
+            slides[currentSlide].classList.remove('active-slide');
+            
+            // Reset answer panel of the slide we are leaving
+            const prevAnswer = slides[currentSlide].querySelector('.answer-panel');
+            if(prevAnswer) {
+                prevAnswer.classList.remove('show');
+                const btn = slides[currentSlide].querySelector('button span');
+                if(btn) btn.innerText = 'Ver Procedimiento';
+            }
+
+            currentSlide += direction;
+            
+            // Show new
+            slides[currentSlide].classList.add('active-slide');
+            updateUI();
+        }
+
+        function toggleAnswer(btn) {
+            const answerPanel = btn.nextElementSibling;
+            const spanText = btn.querySelector('span');
+            
+            if (answerPanel.classList.contains('show')) {
+                answerPanel.classList.remove('show');
+                spanText.innerText = 'Ver Procedimiento';
+            } else {
+                answerPanel.classList.add('show');
+                spanText.innerText = 'Ocultar Procedimiento';
+            }
+        }
+
+        updateUI();
+    </script>
+</body>
+</html>
